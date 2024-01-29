@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>IHA Products</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<style>
+    .topest_header{
+    width: 100%;
+    height: 40px;
+    background-color: #291933;
+    z-index: 99999999;
+}
+
+.topest_header a{
+    margin-right: 20px;
+    float: right;
+    color: white;
+    line-height: 40px;
+    font-size: 12px;
+}
+
+h6{
+    text-align: center;
+    margin-top: 10px;
+}
+
+.container{
+    margin-top: 40px;
+}
+
+.col-lg-4{
+   border-bottom: #291933 1px solid;
+   padding-top: 5px;
+   padding-bottom: 2px;
+}
+
+span{
+    font-weight: bold;
+    margin-left: 10px;
+    font-size:13px ;
+}
+
+
+.bottom_area{
+            width: 100%;
+            height: 60px;
+            position: absolute;
+            bottom: 0px;
+            background-color: #291933;
+         }
+
+         .bottom_area a{
+            display: block;
+            height: 45px;
+            padding-left: 10px;
+            padding-right: 10px;
+            line-height: 45px;
+            margin-top: 7.5px;
+            color: white;
+            margin-right: 20px;
+            float: right;
+            border: white 1px solid;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: 1s;
+         }
+
+         .bottom_area a:hover{
+            color: rgb(111, 74, 114);
+            transition: 1s;
+            border: rgb(111, 74, 114) 1px solid;
+         }
+
+ 
+</style>
+
+<body>
+    <div class="topest_header">
+        <a href="{% url 'render_login' %}">Giriş Sayfası</a>
+      </div>
+     <h6>You Can Get The Member's Information By Here And Enter The Login System By Username and Passowrd</h6>
+    <div class="container">
+        {% for member in members %}
+        <div class="row">
+            <div class="col-lg-4" style="  background-color: #e8c3fd;">
+                <table>
+                    <tr>
+                       <td>email</td> 
+                       <td>:<span>{{member.email}}</span></td> 
+                    </tr>
+                </table>
+            </div>
+            <div class="col-lg-4" style="  background-color: #f2e0fc;">
+                <table>
+                    <tr>
+                       <td>username</td> 
+                       <td>:<span>{{member.username}}</span></td> 
+                    </tr>
+                </table>
+            </div>
+            <div class="col-lg-4" style="  background-color: #edd5fb;">
+                <table>
+                <tr>
+                    <td>password</td> 
+                    <td>:<span>{{member.password}}</span></td> 
+                 </tr>
+                </table>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="bottom_area">
+        <a href="{% url 'Create-Lessee-List' %}">Yeni Kullanıcı Ekle</a>
+ </div>
+
+</body>
+</html>
